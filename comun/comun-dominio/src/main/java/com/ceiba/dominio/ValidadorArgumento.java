@@ -105,6 +105,12 @@ public class ValidadorArgumento {
         }
     }
 
+    public static void validarPositivoConCero(Double valor, String mensaje) {
+        if (valor < 0) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
 
 
 }

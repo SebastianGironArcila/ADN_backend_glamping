@@ -66,7 +66,9 @@ public class ServicioCrearReservaTest {
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
-        //act-assert
+        //act
+        // assert
+
         BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorInvalido.class,"El glamping no esta registrado en el sistema");
 
 
@@ -146,6 +148,8 @@ public class ServicioCrearReservaTest {
 
 
     }
+
+
 
 
 

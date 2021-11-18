@@ -1,6 +1,7 @@
 package com.ceiba.tipo_glamping.entidad;
 
 import com.ceiba.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.tipo_glamping.modelo.entidad.TipoGlamping;
 import com.ceiba.tipo_glamping.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
@@ -47,6 +48,32 @@ public class TipoGlampingTest {
                 ExcepcionValorObligatorio.class, "Se debe ingresar la cantidad de personas maxima");
 
     }
+
+    @Test
+    void deberiaFallarSiNoContieneSoloLetras(){
+        //arrange
+        TipoGlampingTestDataBuilder tipoGlampingTestDataBuilder = new TipoGlampingTestDataBuilder().conTipo("cabaña/54") .conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    tipoGlampingTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "El tipo glamping solo puede contener letras");
+
+    }
+
+    @Test
+    void deberiaFallarSiElNumeroEsInvalido(){
+        //arrange
+        TipoGlampingTestDataBuilder tipoGlampingTestDataBuilder = new TipoGlampingTestDataBuilder().conCantPersonasMax(0L).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    tipoGlampingTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "La cantidad de personas debe ser un numero entero positivo");
+
+    }
+
+
 
 
 

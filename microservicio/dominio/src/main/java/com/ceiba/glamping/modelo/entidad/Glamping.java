@@ -3,7 +3,7 @@ package com.ceiba.glamping.modelo.entidad;
 
 import lombok.Getter;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Glamping {
@@ -25,7 +25,7 @@ public class Glamping {
         validarObligatorio(idtipo_glamping, SE_DEBE_INGRESAR_UN_ID_DE_TIPO_DE_GLAMPING);
         validarObligatorio(descripcion, SE_DEBE_INGRESAR_LA_DESCRIPCION);
         validarObligatorio(precio,SE_DEBE_INGRESAR_EL_PRECIO);
-        validarObligatorio(estado,SE_DEBE_INGRESAR_EL_ESTADO);
+        validarPositivoConCero((double)estado,SE_DEBE_INGRESAR_EL_ESTADO);
 
 
 

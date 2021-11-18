@@ -1,6 +1,7 @@
 package com.ceiba.glamping.entidad;
 
 import com.ceiba.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.glamping.modelo.entidad.Glamping;
 import com.ceiba.glamping.servicio.testdatabuilder.GlampingTestDataBuilder;
@@ -66,6 +67,18 @@ public class GlampingTest {
                     glampingTestDataBuilder.build();
                 },
                 ExcepcionValorObligatorio.class, "Se debe ingresar el precio");
+
+    }
+
+    @Test
+    void deberiaFallarSinEstado(){
+        //arrange
+        GlampingTestDataBuilder glampingTestDataBuilder = new GlampingTestDataBuilder().conEstado(-1).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    glampingTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "Se debe ingresar el estado");
 
     }
 

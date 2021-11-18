@@ -45,7 +45,7 @@ public class Reserva {
         validarObligatorio(fecha_salida,SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA);
         validarPositivo((double) cant_personas,SE_DEBE_INGRESAR_LA_CANTIDAD_DE_PERSONAS);
         validarObligatorio(telefono,SE_DEBE_INGRESAR_EL_TELEFONO);
-        validarObligatorio(costoTotal,SE_DEBE_INGRESAR_EL_COSTO_TOTAL);
+        validarPositivo(costoTotal,SE_DEBE_INGRESAR_EL_COSTO_TOTAL);
         validarObligatorio(fecha_registro,SE_DEBE_INGRESAR_LA_FECHA_DE_REGISTRO);
 
 

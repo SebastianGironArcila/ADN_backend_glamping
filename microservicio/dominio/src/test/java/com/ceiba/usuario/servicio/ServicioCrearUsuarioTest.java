@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServicioCrearUsuarioTest {
 
     @Test
-    @DisplayName("Deberia lanzar una exepecion cuando la longitud de la clave sea menor a 4")
+    @DisplayName("Deberia lanzar una excepcion cuando la longitud de la clave sea menor a 4")
     void deberiaLanzarUnaExepcionCuandoLaLongitudDeLaClaveSeaMenorACuatro() {
         // arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave("124");

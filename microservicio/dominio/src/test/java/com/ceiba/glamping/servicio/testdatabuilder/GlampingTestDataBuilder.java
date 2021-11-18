@@ -14,9 +14,9 @@ public class GlampingTestDataBuilder {
     private int estado;
 
     public GlampingTestDataBuilder(){
-        idtipo_glamping = Long.valueOf(1);
+        idtipo_glamping = 1L;
         descripcion = UUID.randomUUID().toString();
-        precio = Double.valueOf(100000);
+        precio =100000.0;
         estado = 0;
 
     }
