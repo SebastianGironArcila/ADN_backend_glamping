@@ -14,18 +14,18 @@ public interface RepositorioGlamping {
 
     /**
      * Permite validar si existe un tipo de glamping con ese id
-     * @param idtipo_glamping
+     * @param idTipoGlamping
      * @return si existe o no
      */
 
-    boolean existeTipoGlamping(Long idtipo_glamping);
+    boolean existeTipoGlamping(Long idTipoGlamping);
 
     /**
      * Permite retornar el glamping
-     * @param id_glamping
+     * @param idGlamping
      * @return glamping
      */
 
-    Glamping buscarPorId(Long id_glamping);
+    Glamping buscarPorId(Long idGlamping);
 
 }

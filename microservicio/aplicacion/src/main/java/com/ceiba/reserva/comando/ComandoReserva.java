@@ -17,13 +17,13 @@ import java.util.Date;
 public class ComandoReserva {
 
     private Long id;
-    private Long id_glamping;
+    private Long idGlamping;
     private String cedula;
     private String nombre;
-    private LocalDate fecha_entrada;
-    private LocalDate fecha_salida;
-    private int cant_personas;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
+    private int cantPersonas;
     private String telefono;
     private Double costoTotal;
-    private LocalDateTime fecha_registro;
+    private LocalDateTime fechaRegistro;
 }

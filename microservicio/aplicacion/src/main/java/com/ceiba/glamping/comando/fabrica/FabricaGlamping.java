@@ -11,7 +11,7 @@ public class FabricaGlamping {
     public Glamping crear(ComandoGlamping comandoGlamping){
         return new Glamping(
                 comandoGlamping.getId(),
-                comandoGlamping.getIdtipo_glamping(),
+                comandoGlamping.getIdTipoGlamping(),
                 comandoGlamping.getDescripcion(),
                 comandoGlamping.getPrecio(),
                 comandoGlamping.getEstado()

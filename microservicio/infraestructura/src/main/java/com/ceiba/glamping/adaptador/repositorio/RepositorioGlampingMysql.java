@@ -15,7 +15,7 @@ public class RepositorioGlampingMysql implements RepositorioGlamping {
     @SqlStatement(namespace = "glamping",value="crear")
     private static String sqlCrear;
 
-    @SqlStatement(namespace = "tipo_glamping",value="existeTipoGlamping")
+    @SqlStatement(namespace = "tipoGlamping",value="existeTipoGlamping")
     private static String sqlExisteTipoGlamping;
 
     @SqlStatement(namespace = "glamping",value = "existePorId")
@@ -34,17 +34,17 @@ public class RepositorioGlampingMysql implements RepositorioGlamping {
     }
 
     @Override
-    public boolean existeTipoGlamping(Long idtipo_glamping) {
+    public boolean existeTipoGlamping(Long idTipoGlamping) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("idtipo_glamping",idtipo_glamping);
+        paramSource.addValue("idTipoGlamping",idTipoGlamping);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteTipoGlamping,paramSource,Boolean.class);
 
     }
 
     @Override
-    public Glamping buscarPorId(Long id_glamping) {
+    public Glamping buscarPorId(Long idGlamping) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_glamping",id_glamping);
+        paramSource.addValue("idGlamping",idGlamping);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource,Glamping.class);
 
     }

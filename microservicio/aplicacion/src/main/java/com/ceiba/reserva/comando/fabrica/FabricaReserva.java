@@ -11,15 +11,15 @@ public class FabricaReserva {
     public Reserva crear(ComandoReserva comandoReserva){
         return new Reserva(
                 comandoReserva.getId(),
-                comandoReserva.getId_glamping(),
+                comandoReserva.getIdGlamping(),
                 comandoReserva.getCedula(),
                 comandoReserva.getNombre(),
-                comandoReserva.getFecha_entrada(),
-                comandoReserva.getFecha_salida(),
-                comandoReserva.getCant_personas(),
+                comandoReserva.getFechaEntrada(),
+                comandoReserva.getFechaSalida(),
+                comandoReserva.getCantPersonas(),
                 comandoReserva.getTelefono(),
                 comandoReserva.getCostoTotal(),
-                comandoReserva.getFecha_registro()
+                comandoReserva.getFechaRegistro()
 
 
 

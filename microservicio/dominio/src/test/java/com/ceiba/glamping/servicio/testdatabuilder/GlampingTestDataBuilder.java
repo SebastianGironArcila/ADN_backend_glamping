@@ -8,13 +8,13 @@ import java.util.UUID;
 public class GlampingTestDataBuilder {
 
     private Long id;
-    private Long idtipo_glamping;
+    private Long idTipoGlamping;
     private String descripcion;
     private Double precio;
     private int estado;
 
     public GlampingTestDataBuilder(){
-        idtipo_glamping = 1L;
+        idTipoGlamping = 1L;
         descripcion = UUID.randomUUID().toString();
         precio =100000.0;
         estado = 0;
@@ -27,8 +27,8 @@ public class GlampingTestDataBuilder {
 
     }
 
-    public GlampingTestDataBuilder conIdTipoGlamping(Long idtipo_glamping){
-        this.idtipo_glamping = idtipo_glamping;
+    public GlampingTestDataBuilder conIdTipoGlamping(Long idTipoGlamping){
+        this.idTipoGlamping = idTipoGlamping;
         return this;
 
     }
@@ -49,11 +49,11 @@ public class GlampingTestDataBuilder {
     }
 
     public Glamping build(){
-        return new Glamping(id,idtipo_glamping,descripcion,precio,estado);
+        return new Glamping(id,idTipoGlamping,descripcion,precio,estado);
     }
 
     public DtoGlamping buildDt(){
-        return new DtoGlamping(id,idtipo_glamping,descripcion,precio,estado);
+        return new DtoGlamping(id,idTipoGlamping,descripcion,precio,estado);
     }
 
 

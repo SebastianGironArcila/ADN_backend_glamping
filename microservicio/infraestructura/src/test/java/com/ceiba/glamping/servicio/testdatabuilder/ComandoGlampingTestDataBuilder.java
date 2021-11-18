@@ -7,21 +7,21 @@ import java.util.UUID;
 public class ComandoGlampingTestDataBuilder {
 
     private Long id;
-    private Long idtipo_glamping;
+    private Long idTipoGlamping;
     private String descripcion;
     private Double precio;
     private int estado;
 
     public ComandoGlampingTestDataBuilder(){
-        idtipo_glamping = Long.valueOf(1);
+        idTipoGlamping = Long.valueOf(1);
         descripcion = UUID.randomUUID().toString();
         precio = Double.valueOf(100000);
         estado = 0;
 
     }
 
-    public ComandoGlampingTestDataBuilder conIdTipoGlamping(Long idtipo_glamping){
-        this.idtipo_glamping = idtipo_glamping;
+    public ComandoGlampingTestDataBuilder conIdTipoGlamping(Long idTipoGlamping){
+        this.idTipoGlamping = idTipoGlamping;
         return this;
 
     }
@@ -42,7 +42,7 @@ public class ComandoGlampingTestDataBuilder {
     }
 
     public ComandoGlamping build(){
-        return new ComandoGlamping(id,idtipo_glamping,descripcion,precio,estado);
+        return new ComandoGlamping(id,idTipoGlamping,descripcion,precio,estado);
     }
 
 

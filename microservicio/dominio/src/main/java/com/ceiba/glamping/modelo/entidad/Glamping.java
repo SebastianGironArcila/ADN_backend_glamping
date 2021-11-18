@@ -15,14 +15,14 @@ public class Glamping {
 
 
     private Long id;
-    private Long idtipo_glamping;
+    private Long idTipoGlamping;
     private String descripcion;
     private Double precio;
     private int estado;
 
-    public Glamping(Long id, Long idtipo_glamping, String descripcion, Double precio, int estado) {
+    public Glamping(Long id, Long idTipoGlamping, String descripcion, Double precio, int estado) {
 
-        validarObligatorio(idtipo_glamping, SE_DEBE_INGRESAR_UN_ID_DE_TIPO_DE_GLAMPING);
+        validarObligatorio(idTipoGlamping, SE_DEBE_INGRESAR_UN_ID_DE_TIPO_DE_GLAMPING);
         validarObligatorio(descripcion, SE_DEBE_INGRESAR_LA_DESCRIPCION);
         validarObligatorio(precio,SE_DEBE_INGRESAR_EL_PRECIO);
         validarPositivoConCero((double)estado,SE_DEBE_INGRESAR_EL_ESTADO);
@@ -31,7 +31,7 @@ public class Glamping {
 
 
         this.id = id;
-        this.idtipo_glamping = idtipo_glamping;
+        this.idTipoGlamping = idTipoGlamping;
         this.descripcion = descripcion;
         this.precio = precio;
         this.estado = estado;

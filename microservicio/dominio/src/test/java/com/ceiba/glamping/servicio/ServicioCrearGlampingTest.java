@@ -20,7 +20,7 @@ public class ServicioCrearGlampingTest {
         Glamping glamping = new GlampingTestDataBuilder().build();
         RepositorioGlamping repositorioGlamping = Mockito.mock(RepositorioGlamping.class);
         Mockito.when(repositorioGlamping.crear(glamping)).thenReturn(10L);
-        Mockito.when(repositorioGlamping.existeTipoGlamping(glamping.getIdtipo_glamping())).thenReturn(true);
+        Mockito.when(repositorioGlamping.existeTipoGlamping(glamping.getIdTipoGlamping())).thenReturn(true);
         ServicioCrearGlamping servicioCrearGlamping = new ServicioCrearGlamping(repositorioGlamping);
         //act
         Long idGlamping = servicioCrearGlamping.ejecutar(glamping);

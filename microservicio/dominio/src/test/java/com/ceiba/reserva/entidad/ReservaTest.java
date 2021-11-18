@@ -40,14 +40,14 @@ public class ReservaTest {
                 .build();
         //assert
         assertEquals(1,reserva.getId());
-        assertEquals(1,reserva.getId_glamping());
+        assertEquals(1,reserva.getIdGlamping());
         assertEquals("1116275325",reserva.getCedula());
         assertEquals("Duvan",reserva.getNombre());
-        assertEquals(fechaEntrada,reserva.getFecha_entrada());
-        assertEquals(fechaSalida,reserva.getFecha_salida());
-        assertEquals(2,reserva.getCant_personas());
+        assertEquals(fechaEntrada,reserva.getFechaEntrada());
+        assertEquals(fechaSalida,reserva.getFechaSalida());
+        assertEquals(2,reserva.getCantPersonas());
         assertEquals("3198755856",reserva.getTelefono());
-        assertEquals(fechaCreacion,reserva.getFecha_registro().withNano(fechaCreacion.getNano()));
+        assertEquals(fechaCreacion,reserva.getFechaRegistro().withNano(fechaCreacion.getNano()));
 
 
     }

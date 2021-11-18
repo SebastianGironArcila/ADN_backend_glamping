@@ -33,9 +33,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
     }
 
     @Override
-    public boolean existeGlamping(Long id_glamping) {
+    public boolean existeGlamping(Long idGlamping) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_glamping",id_glamping);
+        paramSource.addValue("idGlamping",idGlamping);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteGlamping,paramSource,Boolean.class);
 
     }

@@ -7,27 +7,27 @@ import java.time.LocalDateTime;
 
 public class ReservaTestDataBuilder {
     private Long id;
-    private Long id_glamping;
+    private Long idGlamping;
     private String cedula;
     private String nombre;
-    private LocalDate fecha_entrada;
-    private LocalDate fecha_salida;
-    private int cant_personas;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
+    private int cantPersonas;
     private String telefono;
     private double costoTotal;
-    private LocalDateTime fecha_registro;
+    private LocalDateTime fechaRegistro;
 
     public ReservaTestDataBuilder() {
 
-        id_glamping = Long.valueOf(1);
+        idGlamping = Long.valueOf(1);
         cedula = "1116275325";
         nombre = "Duvan";
-        fecha_entrada = LocalDate.now();
-        fecha_salida =  LocalDate.now().plusDays(3);
-        cant_personas = 2;
+        fechaEntrada = LocalDate.now();
+        fechaSalida =  LocalDate.now().plusDays(3);
+        cantPersonas = 2;
         telefono = "3198755856";
         costoTotal = Double.valueOf(9894444);
-        fecha_registro = LocalDateTime.now();
+        fechaRegistro = LocalDateTime.now();
 
     }
 
@@ -36,8 +36,8 @@ public class ReservaTestDataBuilder {
         return this;
     }
 
-    public ReservaTestDataBuilder conIdGlamping(Long id_glamping) {
-        this.id_glamping = id_glamping;
+    public ReservaTestDataBuilder conIdGlamping(Long idGlamping) {
+        this.idGlamping = idGlamping;
         return this;
 
     }
@@ -54,20 +54,20 @@ public class ReservaTestDataBuilder {
 
     }
 
-    public ReservaTestDataBuilder conFechaEntrada(LocalDate fecha_entrada){
-        this.fecha_entrada= fecha_entrada;
+    public ReservaTestDataBuilder conFechaEntrada(LocalDate fechaEntrada){
+        this.fechaEntrada= fechaEntrada;
         return this;
 
     }
 
-    public ReservaTestDataBuilder conFechaSalida(LocalDate fecha_salida){
-        this.fecha_salida= fecha_salida;
+    public ReservaTestDataBuilder conFechaSalida(LocalDate fechaSalida){
+        this.fechaSalida= fechaSalida;
         return this;
 
     }
 
-    public ReservaTestDataBuilder conCantPersonas(int cant_personas){
-        this.cant_personas= cant_personas;
+    public ReservaTestDataBuilder conCantPersonas(int cantPersonas){
+        this.cantPersonas= cantPersonas;
         return this;
 
     }
@@ -84,13 +84,13 @@ public class ReservaTestDataBuilder {
 
     }
 
-    public ReservaTestDataBuilder conFechaRegistro(LocalDateTime fecha_registro){
-        this.fecha_registro= fecha_registro;
+    public ReservaTestDataBuilder conFechaRegistro(LocalDateTime fechaRegistro){
+        this.fechaRegistro= fechaRegistro;
         return this;
 
     }
 
     public Reserva build(){
-        return new Reserva(id,id_glamping,cedula,nombre,fecha_entrada,fecha_salida,cant_personas,telefono,costoTotal,fecha_registro);
+        return new Reserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro);
     }
 }

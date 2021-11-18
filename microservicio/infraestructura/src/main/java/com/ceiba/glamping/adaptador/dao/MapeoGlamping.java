@@ -13,11 +13,11 @@ public class MapeoGlamping implements RowMapper<DtoGlamping>, MapperResult {
     public DtoGlamping mapRow(ResultSet resultSet, int  rowNum) throws SQLException {
 
         Long id = resultSet.getLong("id");
-        Long idtipo_glamping = resultSet.getLong("idtipo_glamping");
+        Long idTipoGlamping = resultSet.getLong("idTipoGlamping");
         String descripcion = resultSet.getString("descripcion");
         Double precio = resultSet.getDouble("precio");
         int estado = resultSet.getInt("estado");
 
-        return new DtoGlamping(id,idtipo_glamping,descripcion,precio,estado);
+        return new DtoGlamping(id, idTipoGlamping,descripcion,precio,estado);
     }
 }

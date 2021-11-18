@@ -15,25 +15,25 @@ public class ServicioGenerarReserva {
     }
 
     public Reserva ejecutar(Reserva reserva){
-        return new Reserva(reserva.getId(),reserva.getId_glamping(),reserva.getCedula(),reserva.getNombre(),reserva.getFecha_entrada(),reserva.getFecha_salida(),reserva.getCant_personas(),reserva.getTelefono()
-                ,calcularCostoTotal(reserva),reserva.getFecha_registro());
+        return new Reserva(reserva.getId(),reserva.getIdGlamping(),reserva.getCedula(),reserva.getNombre(),reserva.getFechaEntrada(),reserva.getFechaSalida(),reserva.getCantPersonas(),reserva.getTelefono()
+                ,calcularCostoTotal(reserva),reserva.getFechaRegistro());
     }
 
     private Double calcularCostoTotal(Reserva reserva){
-        DtoGlamping dtoGlamping =this.daoReserva.retonarGlampingPorId(reserva.getId_glamping());
+        DtoGlamping dtoGlamping =this.daoReserva.retonarGlampingPorId(reserva.getIdGlamping());
         Double costo=dtoGlamping.getPrecio();
 
 
-        if(reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.TUESDAY ||
-                reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.WEDNESDAY ||
-                reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.THURSDAY){
+        if(reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.TUESDAY ||
+                reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.WEDNESDAY ||
+                reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.THURSDAY){
 
 
             costo  = dtoGlamping.getPrecio() - dtoGlamping.getPrecio()*0.20;
 
-        }else if(reserva.getFecha_registro().getDayOfWeek()== DayOfWeek.FRIDAY ||
-                    reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.SATURDAY ||
-                    reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.SUNDAY){
+        }else if(reserva.getFechaRegistro().getDayOfWeek()== DayOfWeek.FRIDAY ||
+                    reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.SATURDAY ||
+                    reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.SUNDAY){
 
             costo  = dtoGlamping.getPrecio() + dtoGlamping.getPrecio()*0.35;
         }

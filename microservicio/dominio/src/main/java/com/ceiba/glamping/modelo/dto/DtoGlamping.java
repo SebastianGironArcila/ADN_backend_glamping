@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class DtoGlamping {
     private Long id;
-    private Long idtipo_glamping;
+    private Long idTipoGlamping;
     private String descripcion;
     private Double precio;
     private int estado;

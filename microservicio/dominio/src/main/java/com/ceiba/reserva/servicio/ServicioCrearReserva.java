@@ -5,7 +5,7 @@ import com.ceiba.glamping.modelo.dto.DtoGlamping;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
-import com.ceiba.tipo_glamping.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipoGlamping.modelo.dto.DtoTipoGlamping;
 
 import java.time.DayOfWeek;
 
@@ -40,7 +40,7 @@ public class ServicioCrearReserva {
     }
 
     private void validarExistenciaGlamping(Reserva reserva){
-        boolean existe= this.repositorioReserva.existeGlamping(reserva.getId_glamping());
+        boolean existe= this.repositorioReserva.existeGlamping(reserva.getIdGlamping());
         if(!existe){
             throw new ExcepcionValorInvalido(EL_GLAMPING_NO_EXISTE_EN_EL_SISTEMA);
         }
@@ -49,16 +49,16 @@ public class ServicioCrearReserva {
 
 
     private void ValidarCantidadDePersonas(Reserva reserva){
-        DtoGlamping dtoGlamping = this.daoReserva.retonarGlampingPorId(reserva.getId_glamping());
-        DtoTipoGlamping dtoTipoGlamping = this.daoReserva.retonarElTipoDeGlampingPorId(dtoGlamping.getIdtipo_glamping());
-        if(reserva.getCant_personas()>dtoTipoGlamping.getCant_personas_max()){
+        DtoGlamping dtoGlamping = this.daoReserva.retonarGlampingPorId(reserva.getIdGlamping());
+        DtoTipoGlamping dtoTipoGlamping = this.daoReserva.retonarElTipoDeGlampingPorId(dtoGlamping.getIdTipoGlamping());
+        if(reserva.getCantPersonas()>dtoTipoGlamping.getCantPersonasMax()){
             throw new ExcepcionValorInvalido(LA_CANTIDAD_DE_PERSONAS_NO_PUEDE_SUPERAR_EL_LIMITE_DEL_GLAMPING);
         }
 
     }
 
     private void validarEstadoDelGlamping(Reserva reserva){
-        DtoGlamping dtoGlamping =this.daoReserva.retonarGlampingPorId(reserva.getId_glamping());
+        DtoGlamping dtoGlamping =this.daoReserva.retonarGlampingPorId(reserva.getIdGlamping());
         if(dtoGlamping.getEstado()==1){
             throw new ExcepcionValorInvalido(EL_GLAMPING_ESTA_RESERVADO);
         }
@@ -66,7 +66,7 @@ public class ServicioCrearReserva {
     }
 
     private void validarLunes(Reserva reserva) {
-        if (reserva.getFecha_registro().getDayOfWeek() == DayOfWeek.MONDAY) {
+        if (reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.MONDAY) {
             throw new ExcepcionValorInvalido(NO_SE_AGENDAN_RESERVAS_LOS_LUNES);
         }
     }

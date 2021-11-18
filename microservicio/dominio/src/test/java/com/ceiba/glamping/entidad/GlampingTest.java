@@ -5,9 +5,6 @@ import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.glamping.modelo.entidad.Glamping;
 import com.ceiba.glamping.servicio.testdatabuilder.GlampingTestDataBuilder;
-import com.ceiba.tipo_glamping.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
-import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +23,7 @@ public class GlampingTest {
                 .conPrecio(Double.valueOf(44944)).conEstado(1).build();
         //assert
         assertEquals(1, glamping.getId());
-        assertEquals(1, glamping.getIdtipo_glamping());
+        assertEquals(1, glamping.getIdTipoGlamping());
         assertEquals("cabaña amoblada", glamping.getDescripcion());
         assertEquals(44944, glamping.getPrecio());
         assertEquals(1, glamping.getEstado());

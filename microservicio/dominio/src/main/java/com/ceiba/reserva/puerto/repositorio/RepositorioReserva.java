@@ -16,11 +16,11 @@ public interface RepositorioReserva {
 
     /**
      * Permite validar si existe un glamping con ese id
-     * @param id_glamping
+     * @param idGlamping
      * @return si existe o no
      */
 
-    boolean existeGlamping(Long id_glamping);
+    boolean existeGlamping(Long idGlamping);
 
 
 }

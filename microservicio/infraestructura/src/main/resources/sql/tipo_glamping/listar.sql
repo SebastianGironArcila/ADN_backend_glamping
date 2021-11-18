@@ -1,2 +1,0 @@
-select id,tipo,cant_personas_max
-from tipo_glamping

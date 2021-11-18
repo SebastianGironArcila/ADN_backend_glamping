@@ -23,7 +23,7 @@ public class ServicioCrearGlamping {
     }
 
     private void validarExistenciaTipoGlamping(Glamping glamping){
-        boolean existe = this.repositorioGlamping.existeTipoGlamping(glamping.getIdtipo_glamping());
+        boolean existe = this.repositorioGlamping.existeTipoGlamping(glamping.getIdTipoGlamping());
         if(!existe){
             throw new ExcepcionValorInvalido(EL_TIPO_GLAMPING_NO_EXISTE_EN_EL_SISTEMA);
         }

@@ -1,1 +1,1 @@
-insert into reserva (id_glamping,cedula,nombre,fecha_entrada,fecha_salida,cant_personas,telefono,costoTotal,fecha_registro) values (:id_glamping,:cedula,:nombre,:fecha_entrada,:fecha_salida,:cant_personas,:telefono,:costoTotal,:fecha_registro)
+insert into reserva (idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro) values (:idGlamping,:cedula,:nombre,:fechaEntrada,:fechaSalida,:cantPersonas,:telefono,:costoTotal,:fechaRegistro)

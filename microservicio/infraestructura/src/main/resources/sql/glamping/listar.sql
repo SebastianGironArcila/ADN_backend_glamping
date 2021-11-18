@@ -1,2 +1,2 @@
-select id,idtipo_glamping,descripcion,precio,estado
+select id,idTipoGlamping,descripcion,precio,estado
 from glamping
