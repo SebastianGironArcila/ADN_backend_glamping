@@ -7,8 +7,8 @@ import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.reserva.modelo.dto.DtoReserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
-import com.ceiba.tipoGlamping.adaptador.dao.MapeoTipoGlamping;
-import com.ceiba.tipoGlamping.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.adaptador.dao.MapeoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 

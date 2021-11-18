@@ -12,7 +12,7 @@ import static com.ceiba.dominio.ValidadorArgumento.*;
 @Getter
 public class Reserva {
 
-    private static final String SE_DEBE_INGRESAR_EL_idGlamping = "Se debe ingresar un identificador de un glamping";
+    private static final String SE_DEBE_INGRESAR_EL_ID_Glamping = "Se debe ingresar un identificador de un glamping";
     private static final String SE_DEBE_INGRESAR_LA_CEDULA = "Se debe ingresar la cedula";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE = "Se debe ingresar el nombre";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA = "Se debe ingresar la fecha de entrada";
@@ -38,7 +38,7 @@ public class Reserva {
 
     public Reserva(Long id, Long idGlamping, String cedula, String nombre, LocalDate fechaEntrada, LocalDate fechaSalida, int cantPersonas, String telefono, Double costoTotal,LocalDateTime fechaRegistro) {
 
-        validarObligatorio(idGlamping,SE_DEBE_INGRESAR_EL_idGlamping);
+        validarObligatorio(idGlamping,SE_DEBE_INGRESAR_EL_ID_Glamping);
         validarObligatorio(cedula,SE_DEBE_INGRESAR_LA_CEDULA);
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE);
         validarObligatorio(fechaEntrada,SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA);

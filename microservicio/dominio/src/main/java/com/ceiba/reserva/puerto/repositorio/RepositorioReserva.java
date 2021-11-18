@@ -1,7 +1,5 @@
 package com.ceiba.reserva.puerto.repositorio;
 
-import com.ceiba.glamping.modelo.dto.DtoGlamping;
-import com.ceiba.glamping.modelo.entidad.Glamping;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 
 public interface RepositorioReserva {

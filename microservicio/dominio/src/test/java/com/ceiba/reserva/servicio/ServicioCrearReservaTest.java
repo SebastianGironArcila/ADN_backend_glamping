@@ -8,8 +8,8 @@ import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
-import com.ceiba.tipoGlamping.modelo.dto.DtoTipoGlamping;
-import com.ceiba.tipoGlamping.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
+import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

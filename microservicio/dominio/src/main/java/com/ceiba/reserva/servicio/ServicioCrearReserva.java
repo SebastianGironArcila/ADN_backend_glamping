@@ -5,7 +5,7 @@ import com.ceiba.glamping.modelo.dto.DtoGlamping;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
-import com.ceiba.tipoGlamping.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
 
 import java.time.DayOfWeek;
 
