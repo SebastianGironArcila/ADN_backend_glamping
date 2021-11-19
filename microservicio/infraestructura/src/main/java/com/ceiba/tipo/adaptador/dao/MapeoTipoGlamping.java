@@ -13,10 +13,10 @@ public class MapeoTipoGlamping implements RowMapper<DtoTipo>, MapperResult {
     @Override
     public DtoTipo mapRow(ResultSet resultSet, int rowNum) throws SQLException{
         Long id = resultSet.getLong("id");
-        String tipo = resultSet.getString("tipo");
+        String definicion = resultSet.getString("definicion");
         Long cantPersonasMax = resultSet.getLong("cantPersonasMax");
 
-        return new DtoTipo(id,tipo, cantPersonasMax);
+        return new DtoTipo(id,definicion, cantPersonasMax);
 
     }
 }

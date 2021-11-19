@@ -2,21 +2,23 @@ package com.ceiba.tipo.servicio.testdatabuilder;
 
 import com.ceiba.tipo.comando.ComandoTipoGlamping;
 
+import java.util.UUID;
+
 public class ComandoTipoGlampingTestDataBuilder {
 
     private Long id;
-    private String tipo;
+    private String definicion;
     private Long cantPersonasMax;
 
     public ComandoTipoGlampingTestDataBuilder(){
-        tipo = "pareja";
+        definicion = "familiar";
         cantPersonasMax = Long.valueOf(4);
 
 
     }
 
-    public ComandoTipoGlampingTestDataBuilder conTipo(Long idTipoGlamping){
-        this.id = idTipoGlamping;
+    public ComandoTipoGlampingTestDataBuilder conDefinicion(String definicion){
+        this.definicion = definicion;
         return this;
     }
 
@@ -28,7 +30,7 @@ public class ComandoTipoGlampingTestDataBuilder {
     }
 
     public ComandoTipoGlamping build(){
-        return new ComandoTipoGlamping(id,tipo, cantPersonasMax);
+        return new ComandoTipoGlamping(id,definicion, cantPersonasMax);
     }
 
 

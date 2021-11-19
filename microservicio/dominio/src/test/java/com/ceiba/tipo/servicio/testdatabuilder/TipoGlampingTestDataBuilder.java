@@ -6,11 +6,11 @@ import com.ceiba.tipo.modelo.entidad.Tipo;
 public class TipoGlampingTestDataBuilder {
 
     private Long id;
-    private String tipo;
+    private String definicion;
     private Long cantPersonasMax;
 
     public TipoGlampingTestDataBuilder(){
-        tipo = "familiar";
+        definicion = "familiar";
         cantPersonasMax = 4L;
 
 
@@ -23,8 +23,8 @@ public class TipoGlampingTestDataBuilder {
         return this;
     }
 
-    public TipoGlampingTestDataBuilder conTipo(String tipo){
-        this.tipo = tipo;
+    public TipoGlampingTestDataBuilder conTipo(String definicion){
+        this.definicion = definicion;
         return this;
     }
 
@@ -36,8 +36,8 @@ public class TipoGlampingTestDataBuilder {
     }
 
     public Tipo build(){
-        return new Tipo(id,tipo, cantPersonasMax);
+        return new Tipo(id,definicion, cantPersonasMax);
     }
 
-    public DtoTipo buildDt(){ return new DtoTipo(id,tipo, cantPersonasMax); }
+    public DtoTipo buildDt(){ return new DtoTipo(id,definicion, cantPersonasMax); }
 }

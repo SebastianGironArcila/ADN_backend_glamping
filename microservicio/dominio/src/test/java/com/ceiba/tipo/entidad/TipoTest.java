@@ -20,7 +20,7 @@ public class TipoTest {
         Tipo tipo = new  TipoGlampingTestDataBuilder().conId(1L).conTipo("familiar").conCantPersonasMax(Long.valueOf(4)).build();
         //aseert
         assertEquals(1, tipo.getId());
-        assertEquals("familiar", tipo.getTipo());
+        assertEquals("familiar", tipo.getDefinicion());
         assertEquals(4, tipo.getCantPersonasMax());
 
     }

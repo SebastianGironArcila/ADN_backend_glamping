@@ -9,7 +9,7 @@ create table usuario (
 
 create table tipo(
     id int(11) not null auto_increment,
-    tipo varchar(100) not null,
+    definicion varchar(100) not null,
     cantPersonasMax int(11) not null,
     primary  key (id)
 

@@ -13,7 +13,7 @@ import lombok.Setter;
 public class ComandoTipoGlamping {
 
     private Long id;
-    private String tipo;
+    private String definicion;
     private Long cantPersonasMax;
 
 

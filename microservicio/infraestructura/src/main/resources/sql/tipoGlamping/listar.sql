@@ -1,2 +1,2 @@
-select id,tipo,cantPersonasMax
+select id,definicion,cantPersonasMax
 from tipo

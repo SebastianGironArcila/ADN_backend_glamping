@@ -1,1 +1,1 @@
-insert into tipo (tipo, cantPersonasMax) values (:tipo, :cantPersonasMax)
+insert into tipo (definicion, cantPersonasMax) values (:definicion, :cantPersonasMax)

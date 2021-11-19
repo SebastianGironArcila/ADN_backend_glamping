@@ -20,19 +20,19 @@ public class Tipo {
 
 
     private Long id;
-    private String tipo;
+    private String definicion;
     private Long cantPersonasMax;
 
-    public Tipo(Long id, String tipo, Long cantPersonasMax) {
-        validarObligatorio(tipo,SE_DEBE_INGRESAR_EL_TIPO_DE_GLAMPING);
+    public Tipo(Long id, String definicion, Long cantPersonasMax) {
+        validarObligatorio(definicion,SE_DEBE_INGRESAR_EL_TIPO_DE_GLAMPING);
         validarObligatorio(cantPersonasMax,SE_DEBE_INGRESAR_LA_CANTIDAD_DE_PERSONAS_MAXIMA);
 
-        validarSoloLetras(tipo,EL_TIPO_GLAMPING_DEBE_SER_TEXTO);
+        validarSoloLetras(definicion,EL_TIPO_GLAMPING_DEBE_SER_TEXTO);
         validarPositivo(Double.valueOf(cantPersonasMax),LA_CANTIDAD_DE_PERSONAS_DEBE_SER_UN_NUMERO_POSITIVO);
 
 
         this.id = id;
-        this.tipo = tipo;
+        this.definicion = definicion;
         this.cantPersonasMax = cantPersonasMax;
     }
 }

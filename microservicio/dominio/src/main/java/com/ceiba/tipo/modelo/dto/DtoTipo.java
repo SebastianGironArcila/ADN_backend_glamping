@@ -9,6 +9,6 @@ import lombok.Getter;
 public class DtoTipo {
 
     private Long id;
-    private String tipo;
+    private String definicion;
     private Long cantPersonasMax;
 }

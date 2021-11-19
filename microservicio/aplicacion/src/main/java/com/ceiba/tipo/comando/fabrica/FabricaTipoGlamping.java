@@ -10,7 +10,7 @@ public class FabricaTipoGlamping {
     public Tipo crear(ComandoTipoGlamping comandoTipoGlamping){
         return new Tipo(
                 comandoTipoGlamping.getId(),
-                comandoTipoGlamping.getTipo(),
+                comandoTipoGlamping.getDefinicion(),
                 comandoTipoGlamping.getCantPersonasMax()
 
         );
