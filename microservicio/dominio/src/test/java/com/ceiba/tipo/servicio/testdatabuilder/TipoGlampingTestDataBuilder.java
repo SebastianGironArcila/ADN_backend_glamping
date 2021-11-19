@@ -1,7 +1,7 @@
 package com.ceiba.tipo.servicio.testdatabuilder;
 
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
-import com.ceiba.tipo.modelo.entidad.TipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
+import com.ceiba.tipo.modelo.entidad.Tipo;
 
 public class TipoGlampingTestDataBuilder {
 
@@ -35,9 +35,9 @@ public class TipoGlampingTestDataBuilder {
         return this;
     }
 
-    public TipoGlamping build(){
-        return new TipoGlamping(id,tipo, cantPersonasMax);
+    public Tipo build(){
+        return new Tipo(id,tipo, cantPersonasMax);
     }
 
-    public DtoTipoGlamping buildDt(){ return new DtoTipoGlamping(id,tipo, cantPersonasMax); }
+    public DtoTipo buildDt(){ return new DtoTipo(id,tipo, cantPersonasMax); }
 }

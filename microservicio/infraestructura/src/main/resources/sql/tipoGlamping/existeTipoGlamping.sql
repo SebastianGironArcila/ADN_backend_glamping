@@ -1,3 +1,3 @@
 select count(1)
-from tipoGlamping
+from tipo
 where id = :idTipoGlamping

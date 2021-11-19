@@ -87,7 +87,7 @@ public class ComandoReservaTestDataBuilder {
    }
 
    public ComandoReserva build(){
-      return new ComandoReserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro);
+      return new ComandoReserva(id,cedula,nombre,fechaEntrada,idGlamping,cantPersonas,telefono,fechaSalida,costoTotal,fechaRegistro);
    }
 
 }

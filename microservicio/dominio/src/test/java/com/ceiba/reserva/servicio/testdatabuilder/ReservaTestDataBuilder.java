@@ -91,6 +91,6 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build(){
-        return new Reserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro);
+        return new Reserva(id,cedula,nombre,fechaEntrada,idGlamping,cantPersonas,telefono,fechaSalida,costoTotal,fechaRegistro);
     }
 }

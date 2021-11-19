@@ -5,7 +5,7 @@ import com.ceiba.glamping.modelo.dto.DtoGlamping;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
 
 import java.time.DayOfWeek;
 
@@ -21,8 +21,6 @@ public class ServicioCrearReserva {
     private final ServicioGenerarReserva servicioGenerarReserva;
 
 
-    private static final String FORMATO_FECHA = "yyyy-MM-dd";
-
 
     public ServicioCrearReserva(RepositorioReserva repositorioReserva, DaoReserva daoReserva, ServicioGenerarReserva servicioGenerarReserva){
         this.repositorioReserva = repositorioReserva;
@@ -34,7 +32,7 @@ public class ServicioCrearReserva {
         validarLunes(reserva);
         validarExistenciaGlamping(reserva);
         validarEstadoDelGlamping(reserva);
-        ValidarCantidadDePersonas(reserva);
+        validarCantidadDePersonas(reserva);
         reserva = this.servicioGenerarReserva.ejecutar(reserva);
         return this.repositorioReserva.crear(reserva);
     }
@@ -48,10 +46,10 @@ public class ServicioCrearReserva {
 
 
 
-    private void ValidarCantidadDePersonas(Reserva reserva){
+    private void validarCantidadDePersonas(Reserva reserva){
         DtoGlamping dtoGlamping = this.daoReserva.retonarGlampingPorId(reserva.getIdGlamping());
-        DtoTipoGlamping dtoTipoGlamping = this.daoReserva.retonarElTipoDeGlampingPorId(dtoGlamping.getIdTipoGlamping());
-        if(reserva.getCantPersonas()>dtoTipoGlamping.getCantPersonasMax()){
+        DtoTipo dtoTipo = this.daoReserva.retonarElTipoDeGlampingPorId(dtoGlamping.getIdTipoGlamping());
+        if(reserva.getCantPersonas()> dtoTipo.getCantPersonasMax()){
             throw new ExcepcionValorInvalido(LA_CANTIDAD_DE_PERSONAS_NO_PUEDE_SUPERAR_EL_LIMITE_DEL_GLAMPING);
         }
 

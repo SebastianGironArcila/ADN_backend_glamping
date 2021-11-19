@@ -15,8 +15,8 @@ public class ServicioGenerarReserva {
     }
 
     public Reserva ejecutar(Reserva reserva){
-        return new Reserva(reserva.getId(),reserva.getIdGlamping(),reserva.getCedula(),reserva.getNombre(),reserva.getFechaEntrada(),reserva.getFechaSalida(),reserva.getCantPersonas(),reserva.getTelefono()
-                ,calcularCostoTotal(reserva),reserva.getFechaRegistro());
+        return new Reserva(reserva.getId(),reserva.getCedula(),reserva.getNombre(),reserva.getFechaEntrada(),reserva.getIdGlamping(),reserva.getCantPersonas(),reserva.getTelefono(),
+                reserva.getFechaSalida(),calcularCostoTotal(reserva),reserva.getFechaRegistro());
     }
 
     private Double calcularCostoTotal(Reserva reserva){

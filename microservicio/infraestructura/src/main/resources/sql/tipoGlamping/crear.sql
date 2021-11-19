@@ -1,1 +1,1 @@
-insert into tipoGlamping (tipo, cantPersonasMax) values (:tipo, :cantPersonasMax)
+insert into tipo (tipo, cantPersonasMax) values (:tipo, :cantPersonasMax)

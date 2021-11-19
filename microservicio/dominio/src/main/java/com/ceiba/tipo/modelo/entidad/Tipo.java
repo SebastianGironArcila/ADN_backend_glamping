@@ -9,7 +9,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarSoloLetras;
 
 
 @Getter
-public class TipoGlamping {
+public class Tipo {
 
 
     private static final String SE_DEBE_INGRESAR_EL_TIPO_DE_GLAMPING = "Se debe ingresar el tipo de glamping";
@@ -23,7 +23,7 @@ public class TipoGlamping {
     private String tipo;
     private Long cantPersonasMax;
 
-    public TipoGlamping(Long id, String tipo, Long cantPersonasMax) {
+    public Tipo(Long id, String tipo, Long cantPersonasMax) {
         validarObligatorio(tipo,SE_DEBE_INGRESAR_EL_TIPO_DE_GLAMPING);
         validarObligatorio(cantPersonasMax,SE_DEBE_INGRESAR_LA_CANTIDAD_DE_PERSONAS_MAXIMA);
 

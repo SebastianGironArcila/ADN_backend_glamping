@@ -2,7 +2,7 @@ package com.ceiba.reserva.puerto.dao;
 
 import com.ceiba.glamping.modelo.dto.DtoGlamping;
 import com.ceiba.reserva.modelo.dto.DtoReserva;
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public interface DaoReserva {
      * @return tipoGlamping
      */
 
-    DtoTipoGlamping retonarElTipoDeGlampingPorId(Long idTipoGlamping);
+    DtoTipo retonarElTipoDeGlampingPorId(Long idTipoGlamping);
 
 
 

@@ -6,8 +6,8 @@ import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.reserva.servicio.ServicioGenerarReserva;
-import com.ceiba.tipo.puerto.repositorio.RepositorioTipoGlamping;
-import com.ceiba.tipo.servicio.ServicioCrearTipoGlamping;
+import com.ceiba.tipo.puerto.repositorio.RepositorioTipo;
+import com.ceiba.tipo.servicio.ServicioCrearTipo;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
 import com.ceiba.usuario.servicio.ServicioCrearUsuario;
@@ -34,8 +34,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearTipoGlamping servicioCrearTipoGlamping(RepositorioTipoGlamping repositorioTipoGlamping){
-        return new ServicioCrearTipoGlamping(repositorioTipoGlamping);
+    public ServicioCrearTipo servicioCrearTipoGlamping(RepositorioTipo repositorioTipo){
+        return new ServicioCrearTipo(repositorioTipo);
     }
 
     @Bean

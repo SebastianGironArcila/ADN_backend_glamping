@@ -8,7 +8,7 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.reserva.modelo.dto.DtoReserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.tipo.adaptador.dao.MapeoTipoGlamping;
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
@@ -48,7 +48,7 @@ public class DaoReservaMysql implements DaoReserva {
     }
 
     @Override
-    public DtoTipoGlamping retonarElTipoDeGlampingPorId(Long idTipoGlamping) {
+    public DtoTipo retonarElTipoDeGlampingPorId(Long idTipoGlamping) {
 
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idTipoGlamping",idTipoGlamping);

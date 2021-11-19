@@ -8,7 +8,7 @@ import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
 import com.ceiba.tipo.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class ServicioCrearReservaTest {
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
-        DtoTipoGlamping dtoTipoGlamping = new TipoGlampingTestDataBuilder().buildDt();
+        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
 
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
@@ -35,7 +35,7 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipoGlamping);
+        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
@@ -53,7 +53,7 @@ public class ServicioCrearReservaTest {
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
-        DtoTipoGlamping dtoTipoGlamping = new TipoGlampingTestDataBuilder().buildDt();
+        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
 
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
@@ -62,7 +62,7 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioReserva.existeGlamping(5L)).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipoGlamping);
+        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
@@ -80,7 +80,7 @@ public class ServicioCrearReservaTest {
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).conCantPersonas(5).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
-        DtoTipoGlamping dtoTipoGlamping = new TipoGlampingTestDataBuilder().conCantPersonasMax(4L).buildDt();
+        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().conCantPersonasMax(4L).buildDt();
 
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
@@ -89,7 +89,7 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipoGlamping);
+        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
@@ -105,7 +105,7 @@ public class ServicioCrearReservaTest {
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().conEstado(1).buildDt();
-        DtoTipoGlamping dtoTipoGlamping = new TipoGlampingTestDataBuilder().buildDt();
+        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
 
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
@@ -114,7 +114,7 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipoGlamping);
+        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
@@ -130,7 +130,7 @@ public class ServicioCrearReservaTest {
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).conFechaRegistro(LocalDateTime.of(2021,11,22,8,00,00)).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
-        DtoTipoGlamping dtoTipoGlamping = new TipoGlampingTestDataBuilder().buildDt();
+        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
 
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
@@ -139,7 +139,7 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipoGlamping);
+        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);

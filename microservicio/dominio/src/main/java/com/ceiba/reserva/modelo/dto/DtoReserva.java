@@ -12,13 +12,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class DtoReserva {
     private Long id;
-    private Long idGlamping;
     private String cedula;
     private String nombre;
     private LocalDate fechaEntrada;
-    private LocalDate fechaSalida;
+    private Long idGlamping;
     private int cantPersonas;
     private String telefono;
+    private LocalDate fechaSalida;
     private Double costoTotal;
     private LocalDateTime fechaRegistro;
 

@@ -1,3 +1,3 @@
 select *
-from tipoGlamping
+from tipo
 where id = :idTipoGlamping;

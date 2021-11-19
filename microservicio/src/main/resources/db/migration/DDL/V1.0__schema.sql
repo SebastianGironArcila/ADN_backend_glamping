@@ -7,7 +7,7 @@ create table usuario (
 );
 
 
-create table tipoGlamping(
+create table tipo(
     id int(11) not null auto_increment,
     tipo varchar(100) not null,
     cantPersonasMax int(11) not null,
@@ -23,7 +23,7 @@ create table glamping(
      estado int NOT NULL,
      PRIMARY KEY(id),
      FOREIGN KEY(idTipoGlamping)
-         REFERENCES tipoGlamping(id)
+         REFERENCES tipo(id)
          ON DELETE CASCADE
          ON UPDATE CASCADE
 

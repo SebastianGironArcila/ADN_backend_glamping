@@ -15,17 +15,17 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult  {
     @Override
     public DtoReserva mapRow(ResultSet resultSet, int  rowNum) throws SQLException {
         Long id = resultSet.getLong("id");
-        Long idGlamping = resultSet.getLong("idGlamping");
         String cedula = resultSet.getString("cedula");
         String nombre = resultSet.getString("nombre");
         LocalDate fechaEntrada = extraerLocalDate(resultSet,"fechaEntrada");
-        LocalDate fechaSalida = extraerLocalDate(resultSet,"fechaSalida");
+        Long idGlamping = resultSet.getLong("idGlamping");
         int cantPersonas = resultSet.getInt("cantPersonas");
         String telefono = resultSet.getString("telefono");
+        LocalDate fechaSalida = extraerLocalDate(resultSet,"fechaSalida");
         Double costoTotal = resultSet.getDouble("costoTotal");
         LocalDateTime fechaRegistro = extraerLocalDateTime(resultSet,"fechaRegistro");
 
-        return new DtoReserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro);
+        return new DtoReserva(id,cedula,nombre,fechaEntrada,idGlamping,cantPersonas,telefono,fechaSalida,costoTotal,fechaRegistro);
 
 
 

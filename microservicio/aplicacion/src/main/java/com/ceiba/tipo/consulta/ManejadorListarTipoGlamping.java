@@ -1,8 +1,8 @@
 package com.ceiba.tipo.consulta;
 
 
-import com.ceiba.tipo.modelo.dto.DtoTipoGlamping;
-import com.ceiba.tipo.puerto.dao.DaoTipoGlamping;
+import com.ceiba.tipo.modelo.dto.DtoTipo;
+import com.ceiba.tipo.puerto.dao.DaoTipo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @Component
 public class ManejadorListarTipoGlamping {
 
-    private final DaoTipoGlamping daoTipoGlamping;
+    private final DaoTipo daoTipo;
 
-    public ManejadorListarTipoGlamping(DaoTipoGlamping daoTipoGlamping){this.daoTipoGlamping=daoTipoGlamping;}
+    public ManejadorListarTipoGlamping(DaoTipo daoTipo){this.daoTipo = daoTipo;}
 
-    public List<DtoTipoGlamping> ejecutar(){ return this.daoTipoGlamping.listar(); }
+    public List<DtoTipo> ejecutar(){ return this.daoTipo.listar(); }
 }

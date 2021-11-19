@@ -1,2 +1,2 @@
 select id,tipo,cantPersonasMax
-from tipoGlamping
+from tipo

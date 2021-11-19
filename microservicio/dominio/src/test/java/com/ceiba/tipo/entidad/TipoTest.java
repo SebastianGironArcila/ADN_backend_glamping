@@ -3,25 +3,25 @@ package com.ceiba.tipo.entidad;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
-import com.ceiba.tipo.modelo.entidad.TipoGlamping;
+import com.ceiba.tipo.modelo.entidad.Tipo;
 import com.ceiba.tipo.servicio.testdatabuilder.TipoGlampingTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TipoGlampingTest {
+public class TipoTest {
 
     @Test
     @DisplayName("Deberia crear correctamente el tipo de glamping")
     void deberiaCrearCorrectamenteElTipoGlamping(){
         //arrange
         //act
-        TipoGlamping tipoGlamping = new  TipoGlampingTestDataBuilder().conId(1L).conTipo("familiar").conCantPersonasMax(Long.valueOf(4)).build();
+        Tipo tipo = new  TipoGlampingTestDataBuilder().conId(1L).conTipo("familiar").conCantPersonasMax(Long.valueOf(4)).build();
         //aseert
-        assertEquals(1,tipoGlamping.getId());
-        assertEquals("familiar",tipoGlamping.getTipo());
-        assertEquals(4,tipoGlamping.getCantPersonasMax());
+        assertEquals(1, tipo.getId());
+        assertEquals("familiar", tipo.getTipo());
+        assertEquals(4, tipo.getCantPersonasMax());
 
     }
 

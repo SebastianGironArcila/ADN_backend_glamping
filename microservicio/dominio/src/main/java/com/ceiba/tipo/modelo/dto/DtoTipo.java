@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class DtoTipoGlamping {
+public class DtoTipo {
 
     private Long id;
     private String tipo;
