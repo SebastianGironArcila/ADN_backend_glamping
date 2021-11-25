@@ -20,5 +20,11 @@ public interface RepositorioReserva {
 
     boolean existeGlamping(Long idGlamping);
 
+    /**
+     * Permite eliminar una reserva
+     * @param id
+     */
+    void eliminar(Long id);
+
 
 }

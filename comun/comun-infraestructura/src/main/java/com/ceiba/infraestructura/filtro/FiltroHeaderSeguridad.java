@@ -20,7 +20,13 @@ public class FiltroHeaderSeguridad implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+
+		//httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+		//httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, PUT, PATCH, GET, OPTIONS, DELETE");
+		//httpServletResponse.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
+
 		httpServletResponse.setHeader(X_XSS_PROTECTION, "1; mode=block");
 		httpServletResponse.setHeader(X_CONTENT_TYPE_OPTIONS, "nosniff");
 		httpServletResponse.setHeader(PRAGMA, "no-cache");

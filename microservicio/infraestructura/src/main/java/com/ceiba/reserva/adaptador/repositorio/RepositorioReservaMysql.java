@@ -22,9 +22,20 @@ public class RepositorioReservaMysql implements RepositorioReserva {
     @SqlStatement(namespace = "glamping",value = "existePorId")
     private static String sqlExisteGlamping;
 
+    @SqlStatement(namespace="reserva", value="eliminar")
+    private static String sqlEliminar;
+
 
     public RepositorioReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id", id);
+
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
     @Override

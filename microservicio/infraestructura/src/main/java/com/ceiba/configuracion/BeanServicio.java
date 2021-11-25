@@ -5,6 +5,7 @@ import com.ceiba.glamping.servicio.ServicioCrearGlamping;
 import com.ceiba.reserva.puerto.dao.DaoReserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
+import com.ceiba.reserva.servicio.ServicioEliminarReserva;
 import com.ceiba.reserva.servicio.ServicioGenerarReserva;
 import com.ceiba.tipo.puerto.repositorio.RepositorioTipo;
 import com.ceiba.tipo.servicio.ServicioCrearTipo;
@@ -51,6 +52,11 @@ public class BeanServicio {
     @Bean
     public ServicioGenerarReserva servicioGenerarReserva(DaoReserva daoReserva){
         return new ServicioGenerarReserva(daoReserva);
+    }
+
+    @Bean
+    public ServicioEliminarReserva servicioEliminarReserva(RepositorioReserva repositorioReserva){
+        return new ServicioEliminarReserva(repositorioReserva);
     }
 
 
