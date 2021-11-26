@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 public class ServicioCrearReservaTest {
@@ -27,7 +27,6 @@ public class ServicioCrearReservaTest {
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
         DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
-
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
         ServicioGenerarReserva servicioGenerarReserva = Mockito.mock(ServicioGenerarReserva.class);
@@ -36,12 +35,17 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
         Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
+        Mockito.when(repositorioReserva.existeReserva(1L, LocalDate.now(),LocalDate.now().plusDays(3))).thenReturn(false);
         Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
         //act
         servicioCrearReserva.ejecutar(reserva);
         //assert
+        Mockito.verify(repositorioReserva,Mockito.times(1)).existeGlamping(1L);
+        Mockito.verify(daoReserva,Mockito.times(1)).retonarGlampingPorId(1L);
+        Mockito.verify(daoReserva,Mockito.times(1)).retonarElTipoDeGlampingPorId(1L);
+        Mockito.verify(repositorioReserva,Mockito.times(1)).existeReserva(1L, LocalDate.now(),LocalDate.now().plusDays(3));
         Mockito.verify(repositorioReserva,Mockito.times(1)).crear(reserva);
 
 
@@ -54,7 +58,6 @@ public class ServicioCrearReservaTest {
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
         DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
-
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
         ServicioGenerarReserva servicioGenerarReserva = Mockito.mock(ServicioGenerarReserva.class);
@@ -68,7 +71,6 @@ public class ServicioCrearReservaTest {
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
         //act
         // assert
-
         BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorInvalido.class,"El glamping no esta registrado en el sistema");
 
 
@@ -81,7 +83,6 @@ public class ServicioCrearReservaTest {
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).conCantPersonas(5).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
         DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().conCantPersonasMax(4L).buildDt();
-
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
         ServicioGenerarReserva servicioGenerarReserva = Mockito.mock(ServicioGenerarReserva.class);
@@ -100,38 +101,13 @@ public class ServicioCrearReservaTest {
     }
 
     @Test
-    @DisplayName("Deberia lanzar una excepcion cuando el glamping este reservado")
+    @DisplayName("Deberia lanzar una excepcion cuando el glamping ya este reservado")
     void deberiaLanzarUnaExcepcionCuandoElGlampingEsteReservado(){
+
         //arrange
         Reserva reserva = new ReservaTestDataBuilder().conId(1L).build();
-        DtoGlamping dtoGlamping = new GlampingTestDataBuilder().conEstado(1).buildDt();
-        DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
-
-        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
-        DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
-        ServicioGenerarReserva servicioGenerarReserva = Mockito.mock(ServicioGenerarReserva.class);
-
-        Mockito.when(repositorioReserva.crear(reserva)).thenReturn(10L);
-        Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
-        Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
-        Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
-        Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
-        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
-        //act-assert
-        BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorInvalido.class,"El glamping se encuentra reservado");
-
-
-    }
-
-    @Test
-    @DisplayName("Deberia lanzar una excepcion cuando se intente reservar los dias lunes")
-    void deberiaLanzarUnaExcepcionCuandoSeReserveLosLunes(){
-        //arrange
-        Reserva reserva = new ReservaTestDataBuilder().conId(1L).conFechaRegistro(LocalDateTime.of(2021,11,22,8,00,00)).build();
         DtoGlamping dtoGlamping = new GlampingTestDataBuilder().buildDt();
         DtoTipo dtoTipo = new TipoGlampingTestDataBuilder().buildDt();
-
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         DaoReserva daoReserva = Mockito.mock(DaoReserva.class);
         ServicioGenerarReserva servicioGenerarReserva = Mockito.mock(ServicioGenerarReserva.class);
@@ -140,21 +116,15 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.existeGlamping(Mockito.anyLong())).thenReturn(true);
         Mockito.when(daoReserva.retonarGlampingPorId(1L)).thenReturn(dtoGlamping);
         Mockito.when(daoReserva.retonarElTipoDeGlampingPorId(1L)).thenReturn(dtoTipo);
-        Mockito.when(servicioGenerarReserva.ejecutar(reserva)).thenReturn(reserva);
-        Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
+        Mockito.when(repositorioReserva.existeReserva(1L,reserva.getFechaEntrada(),reserva.getFechaSalida())).thenReturn(true);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva,daoReserva,servicioGenerarReserva);
-        //act-assert
-        BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorInvalido.class,"No se agendan reservas los dias lunes");
+        //act
+        //assert
+        BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionValorInvalido.class,"Existen reservas para ese glamping durante esos dias");
+
+
 
 
     }
-
-
-
-
-
-
-
-
 
 }

@@ -8,6 +8,8 @@ import java.time.DayOfWeek;
 
 public class ServicioGenerarReserva {
 
+    public static final double PORCENTAJE_DESCUENTO = 0.20;
+    public static final double PORCENTAJE_AUMENTO = 0.35;
     private final DaoReserva daoReserva;
 
     public ServicioGenerarReserva(DaoReserva daoReserva){
@@ -29,13 +31,13 @@ public class ServicioGenerarReserva {
                 reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.THURSDAY){
 
 
-            costo  = dtoGlamping.getPrecio() - dtoGlamping.getPrecio()*0.20;
+            costo  = dtoGlamping.getPrecio() - dtoGlamping.getPrecio()* PORCENTAJE_DESCUENTO;
 
         }else if(reserva.getFechaRegistro().getDayOfWeek()== DayOfWeek.FRIDAY ||
                     reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.SATURDAY ||
                     reserva.getFechaRegistro().getDayOfWeek() == DayOfWeek.SUNDAY){
 
-            costo  = dtoGlamping.getPrecio() + dtoGlamping.getPrecio()*0.35;
+            costo  = dtoGlamping.getPrecio() + dtoGlamping.getPrecio()* PORCENTAJE_AUMENTO;
         }
 
         return costo;

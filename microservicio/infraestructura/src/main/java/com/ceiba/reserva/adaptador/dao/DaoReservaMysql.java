@@ -30,6 +30,7 @@ public class DaoReservaMysql implements DaoReserva {
     private static String sqlObtenerPorIdTG;
 
 
+
     public DaoReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }

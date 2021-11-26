@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
 
+
 @Getter
 public class Reserva {
 
@@ -23,6 +24,9 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_REGISTRO = "Se debe ingresar la fecha de registro";
     private static final String FORMATO_FECHA = "yyyy-MM-dd";
     private static final String LA_FECHA_ES_INVALIDA = "Formato de fecha no valido, debe tener la estructura YYYY-MM-DD";
+    private static final String NO_SE_AGENDAN_RESERVAS_LOS_LUNES = "No se agendan reservas los dias lunes";
+    private static final String LA_FECHA_DE_ENTRADA_DEBE_SER_MAYOR_O_IGUAL_A_LA_ACTUAL = "La fecha de entrada debe ser mayor o igual a la actual";
+    private static final String LA_FECHA_DE_SALIDA_DEBE_SER_MAYOR_O_IGUAL_A_LA_FECHA_ENTRADA= "La fecha de salida debe ser mayor o igual a la fecha de entrada";
 
 
     private Long id;
@@ -47,6 +51,12 @@ public class Reserva {
         validarObligatorio(fechaSalida,SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA);
         validarPositivo(costoTotal,SE_DEBE_INGRESAR_EL_COSTO_TOTAL);
         validarObligatorio(fechaRegistro,SE_DEBE_INGRESAR_LA_FECHA_DE_REGISTRO);
+
+        validarLunes(fechaRegistro, NO_SE_AGENDAN_RESERVAS_LOS_LUNES);
+        validarFechaEntrada(fechaEntrada,LA_FECHA_DE_ENTRADA_DEBE_SER_MAYOR_O_IGUAL_A_LA_ACTUAL);
+        validarFechasReserva(fechaEntrada,fechaSalida,LA_FECHA_DE_SALIDA_DEBE_SER_MAYOR_O_IGUAL_A_LA_FECHA_ENTRADA);
+
+
 
         this.id = id;
         this.cedula = cedula;

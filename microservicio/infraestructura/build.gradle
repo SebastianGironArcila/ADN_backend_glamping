@@ -16,6 +16,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
+
 group = 'com.ceiba'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
@@ -32,6 +33,11 @@ dependencies {
 	testImplementation project.ext.springboottest
 	implementation project.ext.springbootweb
 	implementation project.ext.swagger
+	implementation group: 'org.apache.axis', name: 'axis', version: '1.4'
+	implementation group: 'javax.xml', name: 'jaxrpc-api', version: '1.1'
+	implementation group: 'commons-discovery', name: 'commons-discovery', version: '0.5'
+	implementation group: 'wsdl4j', name: 'wsdl4j', version: '1.6.2'
+
 
 	implementation project.ext.apachecommons
 	implementation project.ext.springbootjdbc

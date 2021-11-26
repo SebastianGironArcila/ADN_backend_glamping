@@ -112,5 +112,25 @@ public class ValidadorArgumento {
     }
 
 
+    public static void validarLunes(LocalDateTime fechaRegistro, String mensaje) {
+        if (fechaRegistro.getDayOfWeek() == DayOfWeek.MONDAY) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarFechaEntrada(LocalDate fechaEntrada, String mensaje){
+        LocalDate fechaActual = LocalDate.now();
+        if(!(fechaEntrada.isAfter(fechaActual) || fechaEntrada.isEqual(fechaActual))){
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void  validarFechasReserva(LocalDate fechaEntrada, LocalDate fechaSalida, String mensaje){
+        if(! (fechaEntrada.isBefore(fechaSalida) || fechaEntrada.isEqual(fechaSalida))){
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
 
 }
+

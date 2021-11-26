@@ -169,17 +169,44 @@ public class ReservaTest {
 
     }
 
+    @Test
+    void deberiaFallarConFechaRegistroLosLunes(){
 
+        //arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conId(1L).conFechaRegistro(LocalDateTime.of(2021,11,29,14,00,00));
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "No se agendan reservas los dias lunes");
 
+    }
 
+    @Test
+    void deberiaFallarConFechaEntradaMenorALaActual(){
 
+        //arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conId(1L).conFechaEntrada(LocalDate.of(2021,11,20));
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "La fecha de entrada debe ser mayor o igual a la actual");
 
+    }
 
+    @Test
+    void deberiaFallarConFechaEntradaMayorALaFechaSalida(){
 
+        //arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conId(1L).conFechaEntrada(LocalDate.of(2022,02,02)).conFechaSalida(LocalDate.of(2022,01,21));
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "La fecha de salida debe ser mayor o igual a la fecha de entrada");
 
-
-
-
+    }
 
 
 

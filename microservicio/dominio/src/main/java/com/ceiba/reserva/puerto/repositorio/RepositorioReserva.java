@@ -2,6 +2,8 @@ package com.ceiba.reserva.puerto.repositorio;
 
 import com.ceiba.reserva.modelo.entidad.Reserva;
 
+import java.time.LocalDate;
+
 public interface RepositorioReserva {
 
     /**
@@ -25,6 +27,15 @@ public interface RepositorioReserva {
      * @param id
      */
     void eliminar(Long id);
+
+    /**
+     * Permite validar si existe una reserva a esa glamping
+     * @param idGlamping,fechaEntrada,fechaSalida
+     * @return si existe o no
+     */
+
+    boolean existeReserva(Long idGlamping, LocalDate fechaEntrada,LocalDate fechaSalida);
+
 
 
 }

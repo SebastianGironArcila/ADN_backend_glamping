@@ -47,3 +47,17 @@ CREATE TABLE reserva (
          ON UPDATE CASCADE
 );
 
+
+/*insert into tipo(id,definicion,cantPersonasMax) values(1,'familiar',6);
+insert into tipo(id,definicion,cantPersonasMax) values(2,'pareja',2);
+insert into tipo(id,definicion,cantPersonasMax) values(3,'familia pequeña',4);
+insert into tipo(id,definicion,cantPersonasMax) values(4,'parche de amigos',8);
+
+insert into glamping(id,idTipoGlamping,descripcion,precio,estado) values(1,1,'Cabaña amoblada para una familia, wifi, recreacion y una tina grande con agua caliente',500000,0);
+insert into glamping(id,idTipoGlamping,descripcion,precio,estado) values(2,2,'Cabaña amoblada para una pareja, wifi, recreacion y una tina pequeña con agua caliente',100000,0);
+insert into glamping(id,idTipoGlamping,descripcion,precio,estado) values(3,3,'Cabaña amoblada para una familia pequeña, wifi, recreacion y una tina pequeña con agua caliente',400000,0);
+insert into glamping(id,idTipoGlamping,descripcion,precio,estado) values(4,4,'Cabaña amoblada para un parche de amigos wifi, recreacion y una tina pequeña con agua caliente',800000,0);
+
+
+insert into reserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro) values(1,1,'1116275325','Sebastian Giron', '2021-10-25','2021-10-30',1,'3053198749',358678,now());
+insert into reserva(id,idGlamping,cedula,nombre,fechaEntrada,fechaSalida,cantPersonas,telefono,costoTotal,fechaRegistro) values(2,2,'1116895378','Dahiana reyes', '2021-11-02','2021-11-04',1,'3104528812',150000,now());*/

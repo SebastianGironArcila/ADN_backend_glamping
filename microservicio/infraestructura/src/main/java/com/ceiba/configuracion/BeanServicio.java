@@ -7,6 +7,8 @@ import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.reserva.servicio.ServicioEliminarReserva;
 import com.ceiba.reserva.servicio.ServicioGenerarReserva;
+import com.ceiba.tcrm.puerto.repositorio.IRepositorioTCRM;
+import com.ceiba.tcrm.servicio.ServicioConsultarTCRM;
 import com.ceiba.tipo.puerto.repositorio.RepositorioTipo;
 import com.ceiba.tipo.servicio.ServicioCrearTipo;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
@@ -57,6 +59,12 @@ public class BeanServicio {
     @Bean
     public ServicioEliminarReserva servicioEliminarReserva(RepositorioReserva repositorioReserva){
         return new ServicioEliminarReserva(repositorioReserva);
+    }
+
+    @Bean
+    public ServicioConsultarTCRM servicioConsultarTCRM(IRepositorioTCRM repositorioTCRM){
+        return new ServicioConsultarTCRM(repositorioTCRM);
+
     }
 
 

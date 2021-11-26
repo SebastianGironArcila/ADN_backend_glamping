@@ -11,6 +11,8 @@ import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 @Repository
 public class RepositorioReservaMysql implements RepositorioReserva {
 
@@ -25,6 +27,9 @@ public class RepositorioReservaMysql implements RepositorioReserva {
     @SqlStatement(namespace="reserva", value="eliminar")
     private static String sqlEliminar;
 
+    @SqlStatement(namespace = "reserva", value = "validarEstado")
+    private static String sqlValidarEstado;
+
 
     public RepositorioReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -36,6 +41,15 @@ public class RepositorioReservaMysql implements RepositorioReserva {
         paramSource.addValue("id", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+    }
+
+    @Override
+    public boolean existeReserva(Long idGlamping, LocalDate fechaEntrada, LocalDate fechaSalida) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idGlamping", idGlamping);
+        paramSource.addValue("fechaEntrada", fechaEntrada);
+        paramSource.addValue("fechaSalida", fechaSalida);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlValidarEstado, paramSource, Boolean.class);
     }
 
     @Override
